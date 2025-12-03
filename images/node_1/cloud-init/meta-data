@@ -1,0 +1,4 @@
+#cloud-config
+
+instance-id: debian-k8s-base
+local-hostname: debian-k8s-base

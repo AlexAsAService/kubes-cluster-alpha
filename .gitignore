@@ -14,3 +14,7 @@ crash.log
 
 # For built boxes
 *.box
+*.qcow2
+*.qcow2.gz
+images/node_1/packer_key
+images/node_1/packer_key.pub
