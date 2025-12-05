@@ -4,4 +4,4 @@ users:
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
     ssh_authorized_keys:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6mCXYv4UYBAE/mjADx+yR9e6b3BYxzkrtLpFm1JYvsLFKg0s3ySjlwxUl4H3wlCEZXi+15K/DARuAvFc+wuJfkmAwtZZ049dMNUNMFFKZtSYWLlBphM98jD9VaBjVJrzemC1cV8PNr+QRj4ev8VrNL7hUU5Nb7QvQn40q15xhP/3hvLRuPhtAWF/qR0AHMtb+N3r3ncVChBcdes0waSb+sKW00lJ217PqwZ+DuqdlkOWJ9/+GPLJ++Yr2zIpjJOeR6bbBHhp0MYc3UuOj8wjb7O3C3sFckWtBAfoCzQnQ0GSsFwoIzIhl0KbWRuhu3rI34Z20l1G859WvQPkLPUL7hlGaR4nBxz503auwLz4p5cGfS4STriWT5OjyVJp2wWTHhOLUyFFDvs0y6gid7s9inoCq6C7V0tEY1R0VvVgYgjzWmKV1sqyKq2d1G1YIYhQkc1M/jbJmnWiDEJd7G9VL8YOKIL1TA8JQKrP1Gs1xS5ENvzye3E7m5E49tL29HvU= voidkeeper@thevoid"
+      - "${runtime_pubkey}"

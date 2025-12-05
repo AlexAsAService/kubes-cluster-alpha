@@ -24,11 +24,22 @@ variable "image_sha" {
   default = "5da221d8f7434ee86145e78a2c60ca45eb4ef8296535e04f6f333193225792aa8ceee3df6aea2b4ee72d6793f7312308a8b0c6a1c7ed4c7c730fa7bda1bc665f"
 }
 
-
-
 variable "ssh_username" {
   type    = string
   default = "debian"
+}
+
+variable "ssh_private_key_file" {
+  type = string
+}
+
+variable "ssh_public_key" {
+  type = string
+}
+
+variable "disk_size" {
+  type = string
+  default = "20G"
 }
 
 source "qemu" "debian12" {
@@ -38,19 +49,24 @@ source "qemu" "debian12" {
 
   communicator         = "ssh"
   ssh_username         = var.ssh_username
-  ssh_private_key_file = "./packer_key"
-  ssh_timeout          = "20m"
+  ssh_private_key_file = var.ssh_private_key_file
+  ssh_timeout          = "1m"
 
-  headless       = false
+  headless       = true
   accelerator    = "kvm"
   disk_interface = "virtio"
   format         = "qcow2"
-  disk_size      = "20G"
+  disk_size      = var.disk_size
 
   cd_files = [
     "cloud-init/meta-data",
-    "cloud-init/user-data",
   ]
+
+  cd_content = {
+    "user-data" = templatefile("cloud-init/user-data", {
+      runtime_pubkey = var.ssh_public_key
+    }),
+  }
 
   cd_label         = "CIDATA"
   shutdown_command = "sudo shutdown -P now"
