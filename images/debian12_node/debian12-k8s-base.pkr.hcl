@@ -38,7 +38,7 @@ variable "ssh_public_key" {
 }
 
 variable "disk_size" {
-  type = string
+  type    = string
   default = "20G"
 }
 
